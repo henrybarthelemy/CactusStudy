@@ -12,7 +12,7 @@ export default function Cactus(props) {
 
     const determineSrc = (c) => {
         if (c >= 10) {
-            return "/big.png";
+            return "/large.png";
         } else if (c >= 5) {
             return "/medium.png";
         } else {

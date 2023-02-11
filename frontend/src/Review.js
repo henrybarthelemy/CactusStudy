@@ -29,6 +29,46 @@ export default function ReviewCards() {
       back: "A framework for developing frontend things",
       tags: "code monkey,crying",
     },
+    {
+      front: "Design Recipe",
+      back: "How to cook recipes or something idk",
+      tags: "fun dies",
+    },
+    {
+      front: "Backend",
+      back: "Where the magic happens",
+      tags: "webdev,computer science",
+    },
+    {
+      front: "Flip the card around for a surprise",
+      back: "I'm being held hostage against my will please save me call the police anyone please",
+      tags: "fun,things,to,do,in,someone's,basement",
+    },
+    {
+      front: "Computer",
+      back: "010101010101011110100100010101 or something idk i didn't take systems",
+      tags: "systems",
+    },
+    {
+      front: "Algorithms",
+      back: "Djikstra's go brrrrr",
+      tags: "algorithms",
+    },
+    {
+      front: "Cactus",
+      back: "Theme of the hackathon",
+      tags: "cacti",
+    },
+    {
+      front: "thinknig",
+      back: "thonking",
+      tags: "hmm",
+    },
+    {
+      front: "help",
+      back: "me",
+      tags: "pls",
+    },
   ];
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const increment = () => {
@@ -65,7 +105,7 @@ export default function ReviewCards() {
             decrement={decrement}
             key={currentCardIndex}
           ></Card>
-          <Cactus count={currentCardIndex}/>
+          <Cactus count={currentCardIndex} />
         </Flex>
       </Stack>
     );

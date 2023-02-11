@@ -17,12 +17,24 @@ export default function ReviewCards() {
       front: "Facilitated Diffusion",
       back: "A passive movement of particles from high to low concentration through a protein channel in a cell.",
       tags: "biology,science,mcat",
-      set: "science",
+    },
+    {
+      front: "Garbage Collection",
+      back: "Automatic memory management that attempts to reclaim memory allocated by the program",
+      tags: "computer science",
+    },
+    {
+      front: "React",
+      back: "A framework for developing frontend things",
+      tags: "code monkey,crying",
     },
   ];
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const increment = () => {
     setCurrentCardIndex(currentCardIndex + 1);
+  };
+  const decrement = () => {
+    setCurrentCardIndex(Math.max(currentCardIndex - 1, 0));
   };
   if (currentCardIndex >= currentCards.length) {
     return (
@@ -43,6 +55,7 @@ export default function ReviewCards() {
         <Card
           contents={currentCards[currentCardIndex]}
           increment={increment}
+          decrement={decrement}
           key={currentCardIndex}
         ></Card>
       </Stack>

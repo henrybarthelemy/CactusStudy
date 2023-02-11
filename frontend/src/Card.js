@@ -16,6 +16,7 @@ import { useState } from "react";
 export default function Card(props) {
   const { front, back, tags } = props.contents;
   const increment = props.increment;
+  const decrement = props.decrement;
   const [currentContent, setCurrentContent] = useState(front);
   const [frontShowing, setFrontShowing] = useState(true);
   const colorValue = useColorModeValue("gray.50", "gray.800");
@@ -41,6 +42,17 @@ export default function Card(props) {
         textAlign={"center"}
       >
         <Stack mb={8} direction={"row"} spacing={4}>
+          <Button
+            flex={1}
+            fontSize={"sm"}
+            rounded={"full"}
+            _focus={{
+              bg: "gray.200",
+            }}
+            onClick={decrement}
+          >
+            Previous Card
+          </Button>
           <Button
             flex={1}
             fontSize={"sm"}

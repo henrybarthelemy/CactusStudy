@@ -3,7 +3,6 @@
 diesel::table! {
     cards (id) {
         id -> Integer,
-        title -> Text,
         tags -> Text,
         front -> Text,
         back -> Text,

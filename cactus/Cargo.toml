@@ -10,3 +10,5 @@ diesel = { version = "2.0.0", features = ["sqlite"] }
 dotenvy = "0.15"
 actix-web = "3.0"
 actix-rt = "1.0"
+listenfd = "0.3"
+serde = "1.0"

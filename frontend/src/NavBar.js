@@ -142,7 +142,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Create Set",
-    href: "/newcard",
+    href: "/newset",
   },
   {
     label: "Search",

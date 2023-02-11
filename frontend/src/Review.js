@@ -6,6 +6,7 @@ import {
   Button,
   Box,
   Text,
+  Center,
 } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { useState } from "react";
@@ -87,6 +88,9 @@ export default function ReviewCards() {
         <Text color={"gray.500"}>
           Come back later for more cards to review!
         </Text>
+        <Center>
+          <Cactus count={currentCardIndex} />
+        </Center>
       </Box>
     );
   } else {

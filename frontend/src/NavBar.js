@@ -134,7 +134,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Create Set",
-    href: "/addcard",
+    href: "/newcard",
   },
   {
     label: "Search",

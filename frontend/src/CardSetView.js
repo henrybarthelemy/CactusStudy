@@ -13,37 +13,18 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import CaptionCarousel from "./CardCarousel";
+import cards from "set-example";
+
 
 export default function CardSetView(props) {
-    const { front, back } = props;
     const colorValue = useColorModeValue("gray.50", "gray.800");
 
     return (
-        <Center py={6}>
-            <Card
-                maxW={"2xl"}
-                w={"full"}
-                bg={useColorModeValue("white", "gray.900")}
-                rounded={"lg"}
-                p={6}
-                textAlign={"center"}
-            >
-                <Text
-                    textAlign={"center"}
-                    color={useColorModeValue("gray.700", "gray.400")}
-                    px={3}
-                >
-                    Term: {front}
-                </Text>
-
-                <Text
-                    textAlign={"center"}
-                    color={useColorModeValue("gray.700", "gray.400")}
-                    px={3}
-                >
-                    Definition: {back}
-                </Text>
-            </Card>
-        </Center>
-    );
+        <div>
+            <CaptionCarousel set={cards} />
+            <CaptionCarousel set={cards} />
+            <CaptionCarousel set={cards} />
+        </div>
+    )
 }

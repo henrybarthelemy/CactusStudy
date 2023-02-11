@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     element: <SeeSet cards={[1, 2, 3, 4, 5]} />,
   },
   {
-    path: "/review",
+    path: "/review/:id",
     element: <Review />,
   },
   {

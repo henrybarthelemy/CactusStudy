@@ -11,8 +11,11 @@ import { CheckCircleIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import Card from "./Card";
 import Cactus from "./Cactus";
+import { useParams } from "react-router-dom";
 
 export default function ReviewCards() {
+  const id = useParams();
+  console.log(id)
   const currentCards = [
     {
       front: "Facilitated Diffusion",

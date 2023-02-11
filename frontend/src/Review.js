@@ -10,6 +10,7 @@ import {
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import Card from "./Card";
+import Cactus from "./Cactus";
 
 export default function ReviewCards() {
   const currentCards = [
@@ -52,12 +53,20 @@ export default function ReviewCards() {
     return (
       <Stack spacing={3} mx={"auto"} width={"60%"} maxW={"2xl"} py={12}>
         <Heading fontSize={"3xl"}>Review Cards</Heading>
-        <Card
-          contents={currentCards[currentCardIndex]}
-          increment={increment}
-          decrement={decrement}
-          key={currentCardIndex}
-        ></Card>
+        <Flex
+          flexDir="column"
+          width={"100%"}
+          align="center"
+          justify="space-between"
+        >
+          <Card
+            contents={currentCards[currentCardIndex]}
+            increment={increment}
+            decrement={decrement}
+            key={currentCardIndex}
+          ></Card>
+          <Cactus count={currentCardIndex}/>
+        </Flex>
       </Stack>
     );
   }

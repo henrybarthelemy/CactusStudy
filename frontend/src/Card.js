@@ -31,7 +31,7 @@ export default function Card(props) {
   };
 
   return (
-    <Center py={6}>
+    <Center py={6} width="100%">
       <Box
         maxW={"2xl"}
         w={"full"}

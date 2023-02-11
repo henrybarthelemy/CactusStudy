@@ -1,12 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Flex, Textarea, Stack, Heading, Button } from "@chakra-ui/react";
+import {
+  Flex,
+  Textarea,
+  Stack,
+  Heading,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
 
 export default function NewCard() {
   const [frontContents, setFrontContents] = useState("");
   const [backContents, setBackContents] = useState("");
   const [tags, setTags] = useState("");
   const [set, setSet] = useState("");
+  const toast = useToast();
 
   const handleFrontChange = (e) => {
     const contents = e.target.value;
@@ -37,6 +45,14 @@ export default function NewCard() {
       set: set,
     };
     console.log(`Adding card ${card}`);
+
+    toast({
+      title: "Card Added",
+      description: `We added the card to the set ${set}`,
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
 
     setFrontContents("");
     setBackContents("");

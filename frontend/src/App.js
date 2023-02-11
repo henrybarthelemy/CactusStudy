@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useNavigate } from "react-router-dom";
 
 import {
   Flex,
@@ -13,6 +14,8 @@ import {
 } from "@chakra-ui/react";
 
 export default function App() {
+  const navigate = useNavigate();
+
   return (
     <Container maxW={"5xl"}>
       <Stack
@@ -46,7 +49,7 @@ export default function App() {
           >
             Sign up
           </Button>
-          <Button rounded={"full"} px={6}>
+          <Button rounded={"full"} px={6} onClick={() => { navigate("/login") }}>
             Log in
           </Button>
         </Stack>

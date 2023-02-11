@@ -5,7 +5,6 @@ export default function SeeSet() {
 
     function ListCards(props) {
         const cards = props.cards;
-        const cardRender = cards.map((card) => </Card card={card}>)
     }
 
     function Card(props){

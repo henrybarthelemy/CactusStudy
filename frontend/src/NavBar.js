@@ -145,10 +145,6 @@ const NAV_ITEMS = [
     href: "/newcard",
   },
   {
-    label: "Review",
-    href: "/review",
-  },
-  {
     label: "Search",
     href: "#",
   },

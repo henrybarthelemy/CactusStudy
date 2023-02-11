@@ -9,7 +9,6 @@ import Review from "./Review";
 import Login from "./Login";
 import Signup from "./Signup";
 import NavBar from "./NavBar";
-import CaptionCarousel from "./CardCarousel";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -24,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/viewset",
-    element: <SeeSet cards={[1, 2, 3, 4, 5]} />,
+    element: <SeeSet cards={[1, 2]} />,
   },
   {
     path: "/review",
@@ -37,10 +36,6 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
-  },
-  {
-    path: "/carousel",
-    element: <CaptionCarousel cards="../backend/studyset_example.json" />,
   },
 ]);
 

@@ -20,8 +20,7 @@ export default function SeeSet(props) {
     return (
         <Center py={6}>
             <Box
-                maxW={"2xl"}
-                w={"full"}
+                width={"700px"}
                 bg={useColorModeValue("white", "gray.900")}
                 boxShadow={"2xl"}
                 rounded={"lg"}
@@ -38,7 +37,7 @@ export default function SeeSet(props) {
                 </Text>
                 {cards.map((card) => {
                     return (
-                        <CardSetView front={"To learn is to be "} back={"to be is to learn"}>
+                        <CardSetView>
                         </CardSetView>
                     );
                 })}

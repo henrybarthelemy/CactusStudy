@@ -1,4 +1,3 @@
-// When done this should replace CardSetView.js
 import React from "react";
 import {
   Box,
@@ -25,7 +24,7 @@ const settings = {
   slidesToScroll: 1,
 };
 
-export default function CaptionCarousel() {
+export default function CaptionCarousel(props) {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState();
@@ -35,33 +34,7 @@ export default function CaptionCarousel() {
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "40px" });
 
-  // CARDS - THESE SHOULD BE ABLE TO FLIP TODO
-  const cards = [
-    {
-      front: "Facilitated Diffusion",
-      back: "A passive movement of particles from high to low concentration through a protein channel in a cell",
-      id: 1,
-      tags: "biology,science,mcat",
-    },
-    {
-      front: "Termal Contact",
-      back: "is when two substances can affect each other's temperature",
-      id: 2,
-      tags: "phyics,science,thermal",
-    },
-    {
-      front: "una cucharadita",
-      back: "a teaspoon",
-      id: 4,
-      tags: "spanish,languages",
-    },
-    {
-      front: "Conduction",
-      back: "is when heat flows through a heated solid.",
-      id: 5,
-      tags: "phyics,science",
-    },
-  ];
+  const cards = props.set;
 
   return (
     <div style={{

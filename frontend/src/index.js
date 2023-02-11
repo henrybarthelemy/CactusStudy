@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import NewCard from "./NewCard";
+import SeeSet from "./SeeSet";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
     path: "/newcard",
     element: <NewCard />,
   },
+  {
+    path: "/viewset",
+    element: <SeeSet />
+  }
 ]);
 
 

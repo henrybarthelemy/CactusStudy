@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import NewCard from "./NewCard";
+import SeeSet from "./SeeSet";
 import Review from "./Review";
 import Login from "./Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/newcard",
     element: <NewCard />,
+  },
+  {
+    path: "/viewset",
+    element: <SeeSet />
   },
   {
     path: "/review",

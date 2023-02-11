@@ -22,3 +22,4 @@ async fn getcard(filter: web::Json) -> Result<HttpResponse, CustomError> {
     Ok(HttpResponse::Ok().json(/*val*/))
 }
 
+ 

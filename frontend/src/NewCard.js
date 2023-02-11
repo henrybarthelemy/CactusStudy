@@ -22,6 +22,11 @@ export default function NewCard() {
     setTags(contents);
   };
 
+  const addNewCard = (e) => {
+    // Some fetch call, read MDN
+    console.log("pretending to adding card");
+  };
+
   return (
     <Flex
       align={"center"}
@@ -51,7 +56,9 @@ export default function NewCard() {
             pb={2}
           />
         </Stack>
-        <Button colorScheme={"yellow"}>Add Card</Button>
+        <Button colorScheme={"yellow"} onClick={addNewCard}>
+          Add Card
+        </Button>
       </Stack>
     </Flex>
   );

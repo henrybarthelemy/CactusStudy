@@ -18,7 +18,11 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/newcard",
+    path: "/newcard/:id",
+    element: <NewCard />,
+  },
+  {
+    path: "/newcard/",
     element: <NewCard />,
   },
   {

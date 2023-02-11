@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Flex,
   Textarea,
@@ -10,10 +10,10 @@ import {
 } from "@chakra-ui/react";
 
 export default function NewCard() {
+  const id = useParams().id;
   const [frontContents, setFrontContents] = useState("");
   const [backContents, setBackContents] = useState("");
   const [tags, setTags] = useState("");
-  const [set, setSet] = useState("");
   const toast = useToast();
 
   const handleFrontChange = (e) => {
@@ -31,24 +31,19 @@ export default function NewCard() {
     setTags(contents);
   };
 
-  const handleSetChange = (e) => {
-    const contents = e.target.value;
-    setSet(contents);
-  };
-
   const addNewCard = (e) => {
     // Some fetch call, read MDN
     const card = {
       front: frontContents,
       back: backContents,
       tags: tags,
-      set: set,
+      set: id,
     };
     console.log(`Adding card ${card}`);
 
     toast({
       title: "Card Added",
-      description: `We added the card to the set ${set}`,
+      description: `We added the card to the set`,
       status: "success",
       duration: 5000,
       isClosable: true,
@@ -82,17 +77,6 @@ export default function NewCard() {
           <Textarea
             value={tags}
             onChange={handleTagsChange}
-            size="sm"
-            resize="none"
-            rows={1}
-            pb={2}
-          />
-        </Stack>
-        <Stack spacing={4}>
-          <Heading fontSize={"md"}>Set/Deck</Heading>
-          <Textarea
-            value={set}
-            onChange={handleSetChange}
             size="sm"
             resize="none"
             rows={1}

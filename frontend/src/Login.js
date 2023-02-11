@@ -11,28 +11,44 @@ import {
   Heading,
   Text,
   useColorModeValue,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const login = () => {
+    // Do something with username
+    return navigate("/home");
+  };
+
   return (
     <Flex
-      minH={'100vh'}
-      align={'center'}
-      justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-        <Stack align={'center'}>
-          <Heading fontSize={'4xl'}>Sign in</Heading>
+      minH={"100vh"}
+      align={"center"}
+      justify={"center"}
+      bg={useColorModeValue("gray.50", "gray.800")}
+    >
+      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+        <Stack align={"center"}>
+          <Heading fontSize={"4xl"}>Sign in</Heading>
         </Stack>
         <Box
-          rounded={'lg'}
-          bg={useColorModeValue('white', 'gray.700')}
-          boxShadow={'lg'}
-          p={8}>
+          rounded={"lg"}
+          bg={useColorModeValue("white", "gray.700")}
+          boxShadow={"lg"}
+          p={8}
+        >
           <Stack spacing={4}>
             <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <FormLabel>Username</FormLabel>
+              <Input
+                type="email"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              >{username}</Input>
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
@@ -40,18 +56,21 @@ export default function Login() {
             </FormControl>
             <Stack spacing={10}>
               <Stack
-                direction={{ base: 'column', sm: 'row' }}
-                align={'start'}
-                justify={'space-between'}>
+                direction={{ base: "column", sm: "row" }}
+                align={"start"}
+                justify={"space-between"}
+              >
                 <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.400'}>Forgot password?</Link>
+                <Link color={"blue.400"}>Forgot password?</Link>
               </Stack>
               <Button
-                bg={'blue.400'}
-                color={'white'}
+                bg={"blue.400"}
+                color={"white"}
                 _hover={{
-                  bg: 'blue.500',
-                }}>
+                  bg: "blue.500",
+                }}
+                onClick={login}
+              >
                 Sign in
               </Button>
             </Stack>

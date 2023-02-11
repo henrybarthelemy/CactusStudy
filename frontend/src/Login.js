@@ -20,7 +20,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const login = () => {
     // Do something with username
-    return navigate("/home");
+    navigate("/home");
   };
 
   return (
@@ -45,10 +45,8 @@ export default function Login() {
               <FormLabel>Username</FormLabel>
               <Input
                 type="email"
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-              >{username}</Input>
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>

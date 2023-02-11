@@ -7,6 +7,7 @@ import NewCard from "./NewCard";
 import SeeSet from "./SeeSet";
 import Review from "./Review";
 import Login from "./Login";
+import NavBar from "./NavBar";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -37,6 +38,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ChakraProvider>
+      <NavBar />
       <RouterProvider router={router} />
     </ChakraProvider>
   </React.StrictMode>

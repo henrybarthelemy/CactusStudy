@@ -41,10 +41,10 @@ export default function Login() {
           p={8}
         >
           <Stack spacing={4}>
-            <FormControl id="email">
+            <FormControl id="username">
               <FormLabel>Username</FormLabel>
               <Input
-                type="email"
+                type="username"
                 onChange={(e) => setUsername(e.target.value)}
               />
             </FormControl>

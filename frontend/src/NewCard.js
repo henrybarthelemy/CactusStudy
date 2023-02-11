@@ -6,25 +6,41 @@ export default function NewCard() {
   const [frontContents, setFrontContents] = useState("");
   const [backContents, setBackContents] = useState("");
   const [tags, setTags] = useState("");
+  const [set, setSet] = useState("");
 
   const handleFrontChange = (e) => {
-    let contents = e.target.value;
+    const contents = e.target.value;
     setFrontContents(contents);
   };
 
   const handleBackChange = (e) => {
-    let contents = e.target.value;
+    const contents = e.target.value;
     setBackContents(contents);
   };
 
   const handleTagsChange = (e) => {
-    let contents = e.target.value;
+    const contents = e.target.value;
     setTags(contents);
+  };
+
+  const handleSetChange = (e) => {
+    const contents = e.target.value;
+    setSet(contents);
   };
 
   const addNewCard = (e) => {
     // Some fetch call, read MDN
-    console.log("pretending to adding card");
+    const card = {
+      front: frontContents,
+      back: backContents,
+      tags: tags,
+      set: set,
+    };
+    console.log(`Adding card ${card}`);
+
+    setFrontContents("");
+    setBackContents("");
+    setTags("");
   };
 
   return (
@@ -46,13 +62,24 @@ export default function NewCard() {
           <Textarea value={backContents} onChange={handleBackChange} pb={4} />
         </Stack>
         <Stack spacing={4}>
-          <Heading fontSize={"lg"}>Tags</Heading>
+          <Heading fontSize={"md"}>Tags</Heading>
           <Textarea
             value={tags}
             onChange={handleTagsChange}
             size="sm"
             resize="none"
-            height={1}
+            rows={1}
+            pb={2}
+          />
+        </Stack>
+        <Stack spacing={4}>
+          <Heading fontSize={"md"}>Set/Deck</Heading>
+          <Textarea
+            value={set}
+            onChange={handleSetChange}
+            size="sm"
+            resize="none"
+            rows={1}
             pb={2}
           />
         </Stack>

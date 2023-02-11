@@ -30,16 +30,27 @@ export default function NavBar() {
             align={"center"}
         >
           <Flex align={"center"} flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-            <Image
-                borderRadius='full'
-                boxSize='40px'
-                src='resources/logo.png'
-                fallbackSrc='https://i.ibb.co/DgRt316/logo.png'
-                mr={3}
-            />
-            <Text fontSize='xl'>
-              Cactus Study
-            </Text>
+              <Image
+                  borderRadius='full'
+                  boxSize='40px'
+                  src='resources/logo.png'
+                  fallbackSrc='https://i.ibb.co/DgRt316/logo.png'
+                  mr={3}
+              />
+            <Link
+                p={3}
+                fontSize={'xl'}
+                href={'/'}
+                fontWeight={500}
+                color={'#E8871E'}
+                _hover={{
+                  textDecoration: "none",
+                  color: '#EDB458',
+                }}
+            >
+                Cactus Study
+
+            </Link>
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
               <DesktopNav />
             </Flex>

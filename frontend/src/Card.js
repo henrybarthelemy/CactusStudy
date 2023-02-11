@@ -39,25 +39,7 @@ export default function Card(props) {
         p={6}
         textAlign={"center"}
       >
-        <Text
-          textAlign={"center"}
-          color={useColorModeValue("gray.700", "gray.400")}
-          px={3}
-        >
-          {currentContent}
-        </Text>
-
-        <Stack align={"center"} justify={"center"} direction={"row"} mt={6}>
-          {tags.split(",").map((t) => {
-            return (
-              <Badge px={2} py={1} bg={colorValue}>
-                {t}
-              </Badge>
-            );
-          })}
-        </Stack>
-
-        <Stack mt={8} direction={"row"} spacing={4}>
+        <Stack mb={8} direction={"row"} spacing={4}>
           <Button
             flex={1}
             fontSize={"sm"}
@@ -88,6 +70,22 @@ export default function Card(props) {
             Next Card
           </Button>
         </Stack>
+        <Stack align={"center"} justify={"center"} direction={"row"} mb={6}>
+          {tags.split(",").map((t) => {
+            return (
+              <Badge px={2} py={1} bg={colorValue}>
+                {t}
+              </Badge>
+            );
+          })}
+        </Stack>
+        <Text
+          textAlign={"center"}
+          color={useColorModeValue("gray.700", "gray.400")}
+          px={3}
+        >
+          {currentContent}
+        </Text>
       </Box>
     </Center>
   );

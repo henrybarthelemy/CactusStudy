@@ -51,7 +51,7 @@ export default function NewCard() {
             pb={2}
           />
         </Stack>
-        <Button></Button>
+        <Button colorScheme={"yellow"}>Add Card</Button>
       </Stack>
     </Flex>
   );

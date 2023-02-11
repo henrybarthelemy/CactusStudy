@@ -4,6 +4,7 @@ import {
 
 export default function Cactus(props) {
     const count = props.count;
+    const maxCount = props.maxCount;
 
     const computeSize = (c) => {
         const size = 100 + (10 * c);
@@ -11,9 +12,11 @@ export default function Cactus(props) {
     };
 
     const determineSrc = (c) => {
-        if (c >= 10) {
+        const medAmt = Math.floor(maxCount / 3);
+        const largeAmt = medAmt * 2;
+        if (c >= largeAmt) {
             return "/large.png";
-        } else if (c >= 5) {
+        } else if (c >= medAmt) {
             return "/medium.png";
         } else {
             return "/small.png";

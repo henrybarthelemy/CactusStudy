@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import NewCard from "./NewCard";
 import Review from "./Review";
+import Login from "./Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/review",
     element: <Review />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 

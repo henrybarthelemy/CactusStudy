@@ -9,6 +9,7 @@ import Review from "./Review";
 import Login from "./Login";
 import Signup from "./Signup";
 import NavBar from "./NavBar";
+import NewSet from "./NewSet";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/newcard/",
     element: <NewCard />,
+  },
+  {
+    path: "/newset/",
+    element: <NewSet />,
   },
   {
     path: "/viewset",

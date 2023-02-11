@@ -1,33 +1,52 @@
+import {
+    Flex,
+    Text,
+    Stack,
+    Heading,
+    Button,
+    Center,
+    Box,
+    Link,
+    Badge,
+    Avatar,
+    useColorModeValue,
+} from "@chakra-ui/react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import {Button, Flex, Heading, Stack, Textarea} from "@chakra-ui/react";
-export default function SeeSet() {
+import CardSetView from "./CardSetView";
+export default function SeeSet(props) {
+    const { cards } = props;
+    const colorValue = useColorModeValue("gray.50", "gray.800");
 
-    function ListCards(props) {
-    }
-
-    function Card(props){
-        return {
-
-        }
-    }
-
-    //iterate viewing card component for every card in the set
-    console.log("see set");
     return (
-        <Flex
-            align={"center"}
-            justify={"center"}
-            flexDir={"column"}
-            gap={"1em"}
-            py={12}
-        >
-            <Stack spacing={8} mx={"auto"} width={"60%"} maxW={"2xl"}>
+        <Center py={6}>
+            <Box
+                maxW={"2xl"}
+                w={"full"}
+                bg={useColorModeValue("white", "gray.900")}
+                boxShadow={"2xl"}
+                rounded={"lg"}
+                p={6}
+                textAlign={"center"}
+            >
+                <Stack align={"center"} justify={"center"} direction={"row"} mb={6}>
+                    <Badge px={2} py={1} bg={colorValue}>
+                        <Text>Some set info here</Text>
+                    </Badge>
+                </Stack>
+                <Text>
+                    Current set of cards:
+                </Text>
+                {cards.map((card) => {
+                    return (
+                        <CardSetView front={"To learn is to be "} back={"to be is to learn"}>
+                        </CardSetView>
+                    );
+                })}
 
-                <Heading fontSize={"3xl"}>Set name</Heading>
 
-                <Button colorScheme={"green"}>Add cards</Button>
-            </Stack>
-        </Flex>
+
+
+            </Box>
+        </Center>
     );
 }

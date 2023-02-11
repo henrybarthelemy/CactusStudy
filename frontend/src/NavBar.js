@@ -130,11 +130,11 @@ const DesktopNav = () => {
 const NAV_ITEMS = [
   {
     label: "View Sets",
-    href: "#",
+    href: "/viewset",
   },
   {
     label: "Create Set",
-    href: "#",
+    href: "/addcard",
   },
   {
     label: "Search",

@@ -14,7 +14,8 @@ import {
 import { useState } from "react";
 
 export default function Card(props) {
-  const { front, back, tags } = props;
+  const { front, back, tags } = props.contents;
+  const increment = props.increment;
   const [currentContent, setCurrentContent] = useState(front);
   const [frontShowing, setFrontShowing] = useState(true);
   const colorValue = useColorModeValue("gray.50", "gray.800");
@@ -66,6 +67,7 @@ export default function Card(props) {
             _focus={{
               bg: "blue.500",
             }}
+            onClick={increment}
           >
             Next Card
           </Button>

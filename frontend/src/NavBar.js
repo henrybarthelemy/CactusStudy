@@ -59,7 +59,6 @@ export default function NavBar() {
             fontWeight={400}
             variant={"link"}
             href={"/login"}
-
           >
             Sign In
           </Button>
@@ -136,6 +135,10 @@ const NAV_ITEMS = [
   {
     label: "Create Set",
     href: "/newcard",
+  },
+  {
+    label: "Review",
+    href: "/review",
   },
   {
     label: "Search",

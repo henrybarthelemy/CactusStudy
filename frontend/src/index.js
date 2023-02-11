@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import NewCard from "./NewCard";
+import Review from "./Review";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -16,8 +17,11 @@ const router = createBrowserRouter([
     path: "/newcard",
     element: <NewCard />,
   },
+  {
+    path: "/review",
+    element: <Review />,
+  },
 ]);
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -4,7 +4,6 @@ import {Button, Flex, Heading, Stack, Textarea} from "@chakra-ui/react";
 export default function SeeSet() {
 
     function ListCards(props) {
-        const cards = props.cards;
     }
 
     function Card(props){

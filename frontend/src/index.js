@@ -4,12 +4,9 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import NewCard from "./NewCard";
-<<<<<<< HEAD
 import SeeSet from "./SeeSet";
-=======
 import Review from "./Review";
 import Login from "./Login";
->>>>>>> 306834705de1c48814c915df1d7bf9a3391bd8a0
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 

@@ -35,9 +35,8 @@ export default function App() {
           </Text>
         </Heading>
         <Text color={"gray.500"} maxW={"3xl"}>
-          Never miss a meeting. Never be late for one too. Keep track of your
-          meetings and receive smart reminders in appropriate times. Read your
-          smart “Daily Agenda” every morning.
+          Study hard. Do well in school. Use flashcards. Then surely your life
+          will change because of this tool.
         </Text>
         <Stack spacing={6} direction={"row"}>
           <Button
@@ -46,10 +45,17 @@ export default function App() {
             colorScheme={"orange"}
             bg={"orange.400"}
             _hover={{ bg: "orange.500" }}
+            onClick={() => navigate("/signup")}
           >
             Sign up
           </Button>
-          <Button rounded={"full"} px={6} onClick={() => { navigate("/login") }}>
+          <Button
+            rounded={"full"}
+            px={6}
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
             Log in
           </Button>
         </Stack>

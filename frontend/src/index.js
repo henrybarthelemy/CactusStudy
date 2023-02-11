@@ -7,6 +7,7 @@ import NewCard from "./NewCard";
 import SeeSet from "./SeeSet";
 import Review from "./Review";
 import Login from "./Login";
+import Signup from "./Signup";
 import NavBar from "./NavBar";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/viewset",
-    element: <SeeSet cards={[1, 2, 3, 4, 5]}/>
+    element: <SeeSet cards={[1, 2, 3, 4, 5]} />,
   },
   {
     path: "/review",
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
 ]);
 

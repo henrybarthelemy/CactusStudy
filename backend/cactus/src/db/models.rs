@@ -1,24 +1,24 @@
-use lib;
+use crate::db::*;
 use diesel::prelude::*;
 use crate::schema::*;
 use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Queryable)]
 pub struct Users {
-    pub id: i64,
+    pub id: i32,
     pub username: String
 }
 
 #[derive(Serialize, Deserialize, AsChangeset, Insertable)]
-#[diesel(table_name = schema::users)]
+#[diesel(table_name = users)]
 pub struct User {
-    pub id: i64,
+    pub id: i32,
     pub username: String
 }
 
 impl Users {
-    pub fn create(user: User) -> Result<Self, Error> {
-        let conn = &mut establish_connection();;
+    pub fn create(user: User) -> Result<Self, String> {
+        let conn = &mut establish_connection();
         let user = User::from(user);
         let user = diesel::insert_into(Users::table)
             .values(user)
@@ -26,13 +26,13 @@ impl Users {
         Ok(user)
     }
     
-    pub fn delete(username: String) -> Result<usize, Error> {  
+    pub fn delete(username: String) -> Result<usize, String> {  
         let conn = &mut establish_connection();
         let res = diesel::delete(Users::table.filter(Users::username.eq(username))).execute(&conn)?;
         Ok(res)
     }
 
-    pub fn find(username: String) -> Result<Self, Error> {
+    pub fn find(username: String) -> Result<Self, String> {
         let conn = &mut establish_connection();
         let user = Users::table.filter(Users::username.eq(username)).first(&conn)?;
         Ok(user)
@@ -50,7 +50,7 @@ impl User {
 
 #[derive(Serialize, Deserialize, Queryable)]
 pub struct Cards {
-    pub id: i64,
+    pub id: i32,
     pub title: String,
     pub tags: String,
     pub front: String,
@@ -59,10 +59,9 @@ pub struct Cards {
 }
 
 #[derive(Serialize, Deserialize, AsChangeset, Insertable)]
-#[diesel(table_name = schema::cards)]
+#[diesel(table_name = cards)]
 pub struct Card {
-    pub id: i64,
-    pub title: String,
+    pub id: i32,
     pub tags: String,
     pub front: String,
     pub back: String,
@@ -70,7 +69,7 @@ pub struct Card {
 }
 
 impl Cards {
-    pub fn create(card: Card) -> Result<Self, Error> {
+    pub fn create(card: Card) -> Result<Self, String> {
         let conn = &mut establish_connection();
         let card = Card::from(card);
         let card = diesel::insert_into(Cards::table)
@@ -79,14 +78,14 @@ impl Cards {
         Ok(card)
     }
     
-    pub fn delete(id: i32) -> Result<usize, Error> {  
+    pub fn delete(id: i32) -> Result<usize, String> {  
         let conn = &mut establish_connection();
         let res = diesel::delete(Cards::table.filter(Cards::id.eq(id))).execute(&conn)?;
         Ok(res)
     }
 
-    pub fn find(id: i32, tag_in: &Vec<String>, tag_out: &Vec<String>) -> Result<Vec<Self>, Error> {
-        let conn = &mut establish_connection();;
+    pub fn find(id: i32, tag_in: &Vec<String>, tag_out: &Vec<String>) -> Result<Vec<Self>, String> {
+        let conn = &mut establish_connection();
 
         let mut cards: Vec<Card>;
         if id > 0{
@@ -104,7 +103,6 @@ impl Cards {
 impl Card {
     fn from(card: Card) -> Card {
         Card {
-            title: card.title,
             tags: card.tags,
             front: card.front,
             back: card.back,
@@ -116,7 +114,7 @@ impl Card {
 
 #[derive(Serialize, Deserialize, Queryable)]
 pub struct Decks {
-    pub id: i64,
+    pub id: i32,
     pub title: String,
     pub description: String,
     pub tags: String,
@@ -124,7 +122,7 @@ pub struct Decks {
 }
 
 #[derive(Serialize, Deserialize, AsChangeset, Insertable)]
-#[diesel(table_name = schema::decks)]
+#[diesel(table_name = decks)]
 pub struct Deck {
     pub id: i32,
     pub title: String,
@@ -134,7 +132,7 @@ pub struct Deck {
 }
 
 impl Decks {
-    pub fn create(deck: Deck) -> Result<Self, Error> {
+    pub fn create(deck: Deck) -> Result<Self, String> {
         let conn = &mut establish_connection();
         let deck = Card::from(deck);
         let deck = diesel::insert_into(Deck::table)
@@ -143,13 +141,13 @@ impl Decks {
         Ok(deck)
     }
     
-    pub fn delete(id: i32) -> Result<usize, Error> {  
+    pub fn delete(id: i32) -> Result<usize, String> {  
         let conn = &mut establish_connection();
         let res = diesel::delete(Decks::table.filter(Decks::id.eq(id))).execute(&conn)?;
         Ok(res)
     }
 
-    pub fn find(id: i32, tag_in: &Vec<String>, tag_out: &Vec<String>) -> Result<Vec<Self>, Error> {
+    pub fn find(id: i32, tag_in: &Vec<String>, tag_out: &Vec<String>) -> Result<Vec<Self>, String> {
         let conn = &mut establish_connection();
 
         let mut decks: Vec<Deck>;

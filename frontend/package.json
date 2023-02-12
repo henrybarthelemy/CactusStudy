@@ -17,8 +17,10 @@
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
+    "set-example": "file:../backend/studyset_example.json",
+    "setlist-example": "file:../backend/setlist_example.json",
     "web-vitals": "^2.1.4",
-    "set-example": "file:../backend/studyset_example.json"
+    "style": "file:./public/style/style.css"
   },
   "scripts": {
     "start": "react-scripts start",

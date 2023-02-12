@@ -7,7 +7,8 @@ import {
   Heading,
   Text,
   Container,
-  Button
+  Button,
+  Center
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
@@ -104,37 +105,39 @@ export default function CaptionCarousel(props) {
             >
               {/* This is the block you need to change, to customize the caption */}
               <Container size="container.lg" height="300px" position="relative">
-                <Stack
-                  spacing={6}
-                  w={"full"}
-                  maxW={"lg"}
-                  position="absolute"
-                  top="50%"
-                  transform="translate(0, -50%)"
-                  style={{
-                    display: "flex",
-                    alignItems: "center"
-                  }}
-                >
-                  <Heading fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
-                    {card.front}
-                  </Heading>
-                  <Text fontSize={{ base: "md", lg: "lg" }} color="GrayText">
-                    {card.back}
-                  </Text>
-                  <Stack mb={8} direction={"row"} spacing={4}>
-                    <Button
-                      bg="#EDB458"
-                      _hover={{
-                        backgroundColor: "#fcd494"
-                      }}>Review</Button>
-                    <Button
-                      bg="#EDB458"
-                      _hover={{
-                        backgroundColor: "#fcd494",
-                      }}>Add Card</Button>
+                <Center direction="column">
+                  <Stack
+                    spacing={6}
+                    w={"full"}
+                    maxW={"lg"}
+                    position="absolute"
+                    top="50%"
+                    transform="translate(0, -50%)"
+                    style={{
+                      display: "flex",
+                      alignItems: "center"
+                    }}
+                  >
+                    <Heading fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
+                      {card.front}
+                    </Heading>
+                    <Text fontSize={{ base: "md", lg: "lg" }} color="GrayText">
+                      {card.back}
+                    </Text>
+                    <Stack mb={8} direction={"row"} spacing={4}>
+                      <Button
+                        bg="#EDB458"
+                        _hover={{
+                          backgroundColor: "#fcd494"
+                        }}>Review</Button>
+                      <Button
+                        bg="#EDB458"
+                        _hover={{
+                          backgroundColor: "#fcd494",
+                        }}>Add Card</Button>
+                    </Stack>
                   </Stack>
-                </Stack>
+                </Center>
               </Container>
             </Box>
           ))}

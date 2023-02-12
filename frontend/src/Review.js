@@ -92,7 +92,7 @@ export default function ReviewCards() {
           Come back later for more cards to review!
         </Text>
         <Center>
-          <Cactus count={currentCardIndex} />
+          <Cactus count={currentCardIndex} maxCount={currentCards.length} />
         </Center>
       </Box>
     );
@@ -112,7 +112,7 @@ export default function ReviewCards() {
             decrement={decrement}
             key={currentCardIndex}
           ></Card>
-          <Cactus count={currentCardIndex} />
+          <Cactus count={currentCardIndex} maxCount={currentCards.length} />
         </Flex>
       </Stack>
     );

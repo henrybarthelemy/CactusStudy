@@ -13,3 +13,7 @@
 .light-green-background {
 	background-color: #EBF5DF;
 }
+
+#carousel-button:hover {
+	background-color: #966518;
+}

@@ -9,12 +9,9 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useDisclosure,
 } from "@chakra-ui/react";
 
 export default function NavBar() {
-  const { isOpen, onToggle } = useDisclosure();
-
   return (
       <Box>
         <Flex
@@ -32,7 +29,7 @@ export default function NavBar() {
               <Image
                   borderRadius='full'
                   boxSize='40px'
-                  src='resources/logo.png'
+                  src='logo.png'
                   fallbackSrc='https://i.ibb.co/DgRt316/logo.png'
                   mr={3}
               />
@@ -142,11 +139,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Create Set",
-    href: "/newcard",
-  },
-  {
-    label: "Review",
-    href: "/review",
+    href: "/newset",
   },
   {
     label: "Search",

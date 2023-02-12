@@ -41,15 +41,18 @@ export default function NewDeck() {
      * @param e unused
      */
     const addNewSet = (e) => {
-        // Some fetch call, read MDN
-        const deck = {
-            title: title,
-            tags: tags,
-            cards: [],
-        };
-        console.log(`Adding deck: ${deck}`);
+        //New deck to pass to backend
+        const newDeck = {
+            "title": title,
+            "tags": tags
+        }
 
-        //TODO: Backend call to add deck to database
+        //Post request sending to backend, it'll assign blank cards and an appropriate unique ID
+        fetch("http://localhost:8000/newset", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newDeck)
+        })
 
         toast({
             title: "Deck Created",

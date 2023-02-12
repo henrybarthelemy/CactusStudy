@@ -4,20 +4,25 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import NewCard from "./NewCard";
-import SeeSet from "./SeeSet";
+import SeeSets from "./SeeSet";
 import Review from "./Review";
 import Login from "./Login";
 import Signup from "./Signup";
 import NavBar from "./NavBar";
 import NewSet from "./NewSet";
+import Search from "./SearchSets"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import setlistExample from "setlist-example";
+import setlistExample from "setlist-example"; //TODO: replace this instead with a get in SeeSets
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/search/",
+    element: <Search />
   },
   {
     path: "/newcard/:id",
@@ -32,8 +37,8 @@ const router = createBrowserRouter([
     element: <NewSet />,
   },
   {
-    path: "/viewset",
-    element: <SeeSet setlist={setlistExample} />,
+    path: "/sets/",
+    element: <SeeSets setlist={setlistExample} />,
   },
   {
     path: "/review/:id",

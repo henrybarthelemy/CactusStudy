@@ -135,7 +135,7 @@ const DesktopNav = () => {
 const NAV_ITEMS = [
   {
     label: "View Sets",
-    href: "/viewset",
+    href: "/sets",
   },
   {
     label: "Create Set",
@@ -143,6 +143,6 @@ const NAV_ITEMS = [
   },
   {
     label: "Search",
-    href: "#",
+    href: "/search",
   },
 ];

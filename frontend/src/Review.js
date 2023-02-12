@@ -9,72 +9,28 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Cactus from "./Cactus";
 import { useParams } from "react-router-dom";
 
 
 export default function ReviewCards() {
-  const id = useParams();
-  console.log(id)
-  const currentCards = [
-    {
-      front: "Facilitated Diffusion",
-      back: "A passive movement of particles from high to low concentration through a protein channel in a cell.",
-      tags: "biology,science,mcat",
-    },
-    {
-      front: "Garbage Collection",
-      back: "Automatic memory management that attempts to reclaim memory allocated by the program",
-      tags: "computer science",
-    },
-    {
-      front: "React",
-      back: "A framework for developing frontend things",
-      tags: "code monkey,crying",
-    },
-    {
-      front: "Design Recipe",
-      back: "How to cook recipes or something idk",
-      tags: "fun dies",
-    },
-    {
-      front: "Backend",
-      back: "Where the magic happens",
-      tags: "webdev,computer science",
-    },
-    {
-      front: "Flip the card around for a surprise",
-      back: "I'm being held hostage against my will please save me call the police anyone please",
-      tags: "fun,things,to,do,in,someone's,basement",
-    },
-    {
-      front: "Computer",
-      back: "010101010101011110100100010101 or something idk i didn't take systems",
-      tags: "systems",
-    },
-    {
-      front: "Algorithms",
-      back: "Djikstra's go brrrrr",
-      tags: "algorithms",
-    },
-    {
-      front: "Cactus",
-      back: "Theme of the hackathon",
-      tags: "cacti",
-    },
-    {
-      front: "thinknig",
-      back: "thonking",
-      tags: "hmm",
-    },
-    {
-      front: "help",
-      back: "me",
-      tags: "pls",
-    },
-  ];
+  const id = useParams().id;
+  const SetsContext = React.createContext({
+    currentCards: [], fetchSetById: () => {}
+  })
+
+  const [currentCards, setCurrentCards] = useState([]);
+  const fetchSetById = async () => {
+    const response = await(fetch('http://localhost:8000/set/'+id));
+    const getSet = await response.json();
+    setCurrentCards(getSet.data.cards);
+  }
+
+  useEffect(() => {
+    fetchSetById()
+  }, [])
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const increment = () => {
     setCurrentCardIndex(currentCardIndex + 1);

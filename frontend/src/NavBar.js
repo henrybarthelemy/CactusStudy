@@ -62,10 +62,8 @@ export default function NavBar() {
                 as={"a"}
                 href={"/login"}
                 variant={"link"}
-
                 fontSize={"sm"}
                 fontWeight={400}
-
             >
               Sign In
             </Button>

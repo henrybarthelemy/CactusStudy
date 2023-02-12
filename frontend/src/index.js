@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     path: "/newcard/:id",
     element: <NewCard />,
   },
-  {
+  { //TODO: delete this when finished with post for a newcard
     path: "/newcard/",
     element: <NewCard />,
   },
@@ -41,10 +41,6 @@ const router = createBrowserRouter([
   },
   {
     path: "/review/:id",
-    element: <Review />,
-  },
-  { //TODO: delete this and get review based on id
-    path: "/review",
     element: <Review />,
   },
   {

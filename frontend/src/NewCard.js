@@ -33,13 +33,21 @@ export default function NewCard() {
 
   const addNewCard = (e) => {
     // Some fetch call, read MDN
-    const card = {
-      front: frontContents,
-      back: backContents,
-      tags: tags,
-      set: id,
+    const newCard = {
+      'front': frontContents,
+      'back': backContents,
+      'tags': tags,
+      'set_id': id,
     };
-    console.log(`Adding card ${card}`);
+
+    //Post request sending to backend, it'll assign blank cards and an appropriate unique ID
+    fetch("http://localhost:8000/newcard", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newCard)
+    })
+
+
 
     toast({
       title: "Card Added",

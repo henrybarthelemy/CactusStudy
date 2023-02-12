@@ -13,4 +13,4 @@ script doing
 ```
 python main.py
 ```
-or starting it with your chosen ide
+located in the python backend folder or starting it with your chosen ide

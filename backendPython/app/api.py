@@ -85,21 +85,18 @@ sets = [
         set2,
         set3,
     ]
-
 exampleDeck1 = {
     "title": "Biology Study Deck",
     "id": 1,
     "cards": set1,
     "tags": ["bio", "testprep", "academic"],
 }
-
 exampleDeck2 = {
     "title": "Cooking Study Deck",
     "id": 2,
     "cards": set2,
     "tags": ["learning", "cooking", "food"]
 }
-
 exampleDeck3 = {
     "title": "Espanol",
     "id": 3,
@@ -110,8 +107,7 @@ exampleDeck3 = {
 cardId = 14  # current card id, increment by one when getting post stuff
 setId = 4  # current set id, increment by one when getting post stuff
 
-decks = [exampleDeck1, exampleDeck2, exampleDeck3]
-
+decks = [exampleDeck1, exampleDeck2, exampleDeck3]  # starting deck for our server
 
 app = FastAPI()
 
@@ -127,15 +123,30 @@ app.add_middleware(
 
 def getDeck(id):
     for deck in decks:
-        if(deck.id == id):
+        if(int(deck.id) == id):
             return id
 
-@app.post("/newset", tags=["todos"])
+@app.post("/newcard")
+async def add_card(card: dict) -> dict:
+    global cardId
+    print(card['set_id'])
+    set_id = int(card['set_id'])
+    card.pop('set_id', None)
+    card.update({'id': cardId})
+    cardId += 1
+    decks[set_id - 1]['cards'].append(card)
+    print(decks[set_id-1])
+    return {
+        "data": {"Card created and added to set."}
+    }
+
+@app.post("/newset")
 async def add_set(deck: dict) -> dict:
+    global setId
     deck.update({'id': setId})
     deck.update({'cards': []})
-
     decks.append(deck)
+    setId += 1
     print(decks)
     return {
         "data": {"Set created."}
@@ -146,7 +157,7 @@ async def get_sets(id: str) -> dict:
     print("Trying to grab with " + id)
     return { "data" : decks[int(id) - 1] }
 
-@app.get("/sets", tags=["sets"])
+@app.get("/sets")
 async def get_sets() -> dict:
     #TODO: Data validation
     print(decks)

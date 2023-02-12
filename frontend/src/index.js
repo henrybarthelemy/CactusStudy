@@ -13,7 +13,6 @@ import NewSet from "./NewSet";
 import Search from "./SearchSets"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import setlistExample from "setlist-example"; //TODO: replace this instead with a get in SeeSets
 
 const router = createBrowserRouter([
   {
@@ -38,13 +37,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/sets/",
-    element: <SeeSets setlist={setlistExample} />,
+    element: <SeeSets />,
   },
   {
     path: "/review/:id",
     element: <Review />,
   },
-  {
+  { //TODO: delete this and get review based on id
     path: "/review",
     element: <Review />,
   },

@@ -37,8 +37,8 @@ export default function CaptionCarousel(props) {
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "40px" });
 
-  console.log(props);
-  const cards = props.set;
+  const cards = props.set.cards;
+  const id = props.set.id;
 
   return (
     <div style={{
@@ -125,13 +125,18 @@ export default function CaptionCarousel(props) {
                       {card.back}
                     </Text>
                     <Stack mb={8} direction={"row"} spacing={4}>
+                      {/* REVIEW & NEW CARD BUTTON */}
                       <Button
-                        bg="#EDB458"
+                        as={"a"}
+                        bg={"#EDB458"}
+                        href={`/review/${id}`}
                         _hover={{
                           backgroundColor: "#fcd494"
                         }}>Review</Button>
                       <Button
-                        bg="#EDB458"
+                        as={"a"}
+                        bg={"#EDB458"}
+                        href={`/newcard/${id}`}
                         _hover={{
                           backgroundColor: "#fcd494",
                         }}>Add Card</Button>

@@ -141,6 +141,11 @@ async def add_set(deck: dict) -> dict:
         "data": {"Set created."}
     }
 
+@app.get("/set/{id}")
+async def get_sets(id: str) -> dict:
+    print("Trying to grab with " + id)
+    return { "data" : decks[int(id) - 1] }
+
 @app.get("/sets", tags=["sets"])
 async def get_sets() -> dict:
     #TODO: Data validation

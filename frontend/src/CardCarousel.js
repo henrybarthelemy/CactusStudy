@@ -120,7 +120,7 @@ export default function CaptionCarousel(props) {
                     <Heading fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
                       {card.front}
                     </Heading>
-                    <Text fontSize={{ base: "md", lg: "lg" }} color="GrayText">
+                    <Text w='80%' fontSize={{ base: "md", lg: "lg" }} color="GrayText">
                       {card.back}
                     </Text>
 

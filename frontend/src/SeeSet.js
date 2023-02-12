@@ -12,9 +12,11 @@ import {
     useColorModeValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import CardSetView from "./CardSetView";
+import CaptionCarousel from "./CardCarousel";
+
+
 export default function SeeSet(props) {
-    const { cards } = props;
+    const { setlist } = props;
     const colorValue = useColorModeValue("gray.50", "gray.800");
 
     return (
@@ -28,22 +30,19 @@ export default function SeeSet(props) {
                 textAlign={"center"}
             >
                 <Stack align={"center"} justify={"center"} direction={"row"} mb={6}>
-                    <Badge px={2} py={1} bg={colorValue}>
-                        <Text>Some set info here</Text>
-                    </Badge>
                 </Stack>
-                <Text>
-                    Current set of cards:
-                </Text>
-                {cards.map((card) => {
+                <Badge px={2} py={1} bg={colorValue}>
+                    <Text>All Study Sets</Text>
+                </Badge>
+                {setlist.map((set) => {
                     return (
-                        <CardSetView>
-                        </CardSetView>
+                        <div style={{
+                            margin: "15px"
+                        }}>
+                            <CaptionCarousel set={set} />
+                        </div>
                     );
                 })}
-
-
-
 
             </Box>
         </Center>

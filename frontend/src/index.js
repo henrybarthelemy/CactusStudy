@@ -12,6 +12,7 @@ import NavBar from "./NavBar";
 import NewSet from "./NewSet";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
+import setlistExample from "setlist-example";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/viewset",
-    element: <SeeSet cards={[1, 2]} />,
+    element: <SeeSet setlist={setlistExample} />,
   },
   {
     path: "/review/:id",

@@ -7,11 +7,13 @@ import {
   Heading,
   Text,
   Container,
+  Button
 } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 // And react-slick as our Carousel Lib
 import Slider from "react-slick";
+import "style"
 
 // Settings for the slider
 const settings = {
@@ -34,6 +36,7 @@ export default function CaptionCarousel(props) {
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "40px" });
 
+  console.log(props);
   const cards = props.set;
 
   return (
@@ -46,7 +49,7 @@ export default function CaptionCarousel(props) {
         height="300px"
         width="700px"
         overflow="hidden"
-        shadow="base"
+        shadow="lg"
 
       >
         {/* CSS files for react-slick */}
@@ -108,6 +111,10 @@ export default function CaptionCarousel(props) {
                   position="absolute"
                   top="50%"
                   transform="translate(0, -50%)"
+                  style={{
+                    display: "flex",
+                    alignItems: "center"
+                  }}
                 >
                   <Heading fontSize={{ base: "lg", md: "xl", lg: "2xl" }}>
                     {card.front}
@@ -115,12 +122,24 @@ export default function CaptionCarousel(props) {
                   <Text fontSize={{ base: "md", lg: "lg" }} color="GrayText">
                     {card.back}
                   </Text>
+                  <Stack mb={8} direction={"row"} spacing={4}>
+                    <Button
+                      bg="#EDB458"
+                      _hover={{
+                        backgroundColor: "#fcd494"
+                      }}>Review</Button>
+                    <Button
+                      bg="#EDB458"
+                      _hover={{
+                        backgroundColor: "#fcd494",
+                      }}>Add Card</Button>
+                  </Stack>
                 </Stack>
               </Container>
             </Box>
           ))}
         </Slider>
-      </Box>
-    </div>
+      </Box >
+    </div >
   );
 }

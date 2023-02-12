@@ -42,15 +42,37 @@ export default function SeeSet() {
                     p={6}
                     textAlign={"center"}
                 >
-                    <Stack align={"center"} justify={"center"} direction={"row"} mb={6}>
-                    </Stack>
+
                     <Badge px={2} py={1} bg={colorValue}>
                         <Text>All Study Sets</Text>
                     </Badge>
                     { allSets.map((set) => {
                         return (
-                            <div style={{ margin: "15px" }}>
-                                <CaptionCarousel set={set.cards}/>
+                            <div style={{ margin: "20px"}}>
+                                <Box shadow="lg">
+                                    <CaptionCarousel cards={set.cards}/>
+                                    <Box mb={8} direction={"row"} spacing={4} p={5} align={"center"}>
+                                        <Button
+                                            as={"a"}
+                                            bg={"#EDB458"}
+                                            ml={4}
+                                            mr={4}
+                                            href={`/review/${set.id}`}
+                                            _hover={{
+                                                backgroundColor: "#fcd494"
+                                            }}>Review</Button>
+
+                                        <Button
+                                            as={"a"}
+                                            bg={"#EDB458"}
+                                            ml={4}
+                                            mr={4}
+                                            href={`/newcard/${set.id}`}
+                                            _hover={{
+                                                backgroundColor: "#fcd494",
+                                            }}>Add Card</Button>
+                                    </Box>
+                                </Box>
                             </div>
                         );
                     })}

@@ -37,8 +37,7 @@ export default function CaptionCarousel(props) {
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "40px" });
 
-  const cards = props.set.cards;
-  const id = props.set.id;
+  const cards = props.cards;
 
   return (
     <div style={{
@@ -50,7 +49,7 @@ export default function CaptionCarousel(props) {
         height="300px"
         width="700px"
         overflow="hidden"
-        shadow="lg"
+        shadow="xs"
 
       >
         {/* CSS files for react-slick */}
@@ -124,23 +123,7 @@ export default function CaptionCarousel(props) {
                     <Text fontSize={{ base: "md", lg: "lg" }} color="GrayText">
                       {card.back}
                     </Text>
-                    <Stack mb={8} direction={"row"} spacing={4}>
-                      {/* REVIEW & NEW CARD BUTTON */}
-                      <Button
-                        as={"a"}
-                        bg={"#EDB458"}
-                        href={`/review/${id}`}
-                        _hover={{
-                          backgroundColor: "#fcd494"
-                        }}>Review</Button>
-                      <Button
-                        as={"a"}
-                        bg={"#EDB458"}
-                        href={`/newcard/${id}`}
-                        _hover={{
-                          backgroundColor: "#fcd494",
-                        }}>Add Card</Button>
-                    </Stack>
+
                   </Stack>
                 </Center>
               </Container>
